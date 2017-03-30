@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modelo.Autor;
 import modelo.Editora;
+import modelo.Livro;
 import modelo.Pessoa;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -79,5 +80,17 @@ public class PrimeiroControle {
         return "index";
     }
     
+    @RequestMapping(value="/preparaCadastroLivro.htm", method = RequestMethod.GET)
+    public String preparaCadastroLivro(@ModelAttribute("livro") Livro livro, HttpServletRequest req) {
+        
+        livro.setAutor(new Autor());
+        livro.setEditora(new Editora());
+        LivrariaDao dao = new LivrariaDao();
+        
+        req.setAttribute("listaAutor", dao.listarAutor());
+        req.setAttribute("listaEditora", dao.listarEditora());
+        
+        return "cadastroLivro";
+    }
     
 }

@@ -22,6 +22,8 @@ public class Livro {
     @Column(name = "idlivro")
     private int idLivro;
     
+    private String title;
+    
     @OneToOne
     private Autor autor;
     
@@ -29,6 +31,14 @@ public class Livro {
     private Editora editora;
     private int ano;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
     public int getIdLivro() {
         return idLivro;
     }

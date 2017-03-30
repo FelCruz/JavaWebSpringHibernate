@@ -25,9 +25,10 @@
         <ul>
             <li><a href="preparaCadastrarPessoa.htm"> Cadastrar Pessoa</a></li>
             <li><a href="listarPessoa.htm"> Listar Pessoa</a></li>
-            <br />
+            <br />            
+            <li><a href="preparaCadastroLivro.htm"> Cadastrar Livro</a></li>
             <li><a href="preparaCadastrarAutor.htm"> Cadastrar Autor</a></li>
-            <li><a href="preparaCadastrarEditora.htm"> Cadastrar Editora</a></li>
+            <li><a href="preparaCadastrarEditora.htm"> Cadastrar Editora</a></li>            
             
         </ul>
         

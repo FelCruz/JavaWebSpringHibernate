@@ -13,13 +13,26 @@
         <title>Cadastro</title>
     </head>
     <body>
-        <h2>Cadastro Autor</h2>
+        <h2>Cadastro Livro</h2>
         <hr>       
         <s:form action="cadastrarLivro.htm" method="POST" modelAttribute="livro">            
             <table>
                 <tr>
-                    <td>Nome: </td>
-                    <td><s:input path="nome"/></td>
+                    <td>Titulo: </td>
+                    <td><s:input path="title"/></td>
+                </tr>
+                
+                <tr>
+                    <td>Autor </td>
+                    <td><s:select path="autor.idAutor" items="${listaAutor}" itemValue="idAutor" itemLabel="nome"/></td>
+                </tr>
+                <tr>
+                    <td>Editora: </td>
+                    <td><s:select path="editora.idEditora" items="${listaEditora}" itemValue="idEditora" itemLabel="nome"/></td>
+                </tr>
+                <tr>
+                    <td>Ano: </td>
+                    <td><s:input path="ano"/></td>
                 </tr>
                 
             </table>
