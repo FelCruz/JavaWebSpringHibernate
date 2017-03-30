@@ -50,7 +50,7 @@ public class PrimeiroControle {
         PessoaDao dao = new PessoaDao();
         List<Pessoa> lista = dao.listarPessoas();
         req.setAttribute("listaPessoas", lista);
-        return "listaPessoa";
+        return "listaPessoas";
     }
     
     @RequestMapping(value="/preparaCadastrarAutor.htm", method = RequestMethod.GET)
