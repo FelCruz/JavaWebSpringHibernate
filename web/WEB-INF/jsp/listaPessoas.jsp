@@ -12,8 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:forEach items="${listaPessoas}" var="pessoa">
-            <c:out value="${pessoa.nome}"/>
-        </c:forEach>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </thead>
+            
+            <tbody>
+                <c:forEach items="${listaPessoas}" var="pessoa">
+                    <td>${pessoa.id}</td>
+                    <td>${pessoa.nome}</td>
+                    <td>${pessoa.email}</td>
+                <td><a href="excluirPessoa.htm?idPessoa=${pessoa.id}">Excluir</a></td>
+                </c:forEach>
+            </tbody>
+        </table>        
     </body>
 </html>

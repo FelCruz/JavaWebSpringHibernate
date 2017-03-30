@@ -11,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import modelo.Autor;
 import modelo.Editora;
+import modelo.Livro;
 
 /**
  *
@@ -58,6 +59,17 @@ public class LivrariaDao {
         em.close();
         factory.close();
         return listaAutor;
+    } 
+    
+    public void cadastrarLivro(Livro livro) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PersistSpringDois");
+        EntityManager em = factory.createEntityManager();        
+            
+        em.getTransaction().begin();
+        em.persist(livro);
+        em.getTransaction().commit();;
+        em.close();
+        factory.close();
     } 
     
 }

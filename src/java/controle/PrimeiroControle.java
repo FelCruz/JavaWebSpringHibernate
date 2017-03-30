@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -51,6 +52,19 @@ public class PrimeiroControle {
         PessoaDao dao = new PessoaDao();
         List<Pessoa> lista = dao.listarPessoas();
         req.setAttribute("listaPessoas", lista);
+        return "listaPessoas";
+    }
+    
+    @RequestMapping(value="/excluirPessoa.htm", method = RequestMethod.GET)
+    public String excluirPessoa(HttpServletRequest req, @RequestParam("idPessoa")String id) {
+        
+        PessoaDao dao = new PessoaDao();
+        dao.excluirPessoa(Integer.parseInt(id));
+        
+        List<Pessoa> lista = dao.listarPessoas();
+        req.setAttribute("listaPessoas", lista);
+        
+        
         return "listaPessoas";
     }
     
@@ -91,6 +105,15 @@ public class PrimeiroControle {
         req.setAttribute("listaEditora", dao.listarEditora());
         
         return "cadastroLivro";
+    }
+    
+    @RequestMapping(value="/cadastrarLivro.htm", method = RequestMethod.POST)
+    public String cadastrarLivro(@ModelAttribute("livro") Livro livro, HttpServletRequest req) {
+        
+        LivrariaDao dao = new LivrariaDao();
+        dao.cadastrarLivro(livro);
+        
+        return "index";
     }
     
 }

@@ -19,8 +19,7 @@ import modelo.Pessoa;
 public class PessoaDao {
     
     public void cadastrarPessoa(Pessoa pessoa){
-        EntityManagerFactory factory = 
-                Persistence.createEntityManagerFactory("PersistSpring");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PersistSpring");
         
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
@@ -39,6 +38,17 @@ public class PessoaDao {
         em.close();
         return listaPessoas;
         
+    }
+    
+    public void excluirPessoa(int idPessoa){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PersistSpring");        
+        EntityManager em = factory.createEntityManager();
+        
+        em.getTransaction().begin();
+        Pessoa pessoa = em.find(Pessoa.class, idPessoa);
+        em.remove(pessoa);
+        em.getTransaction().commit();
+        em.close();
     }
     
     
